@@ -3,25 +3,34 @@
   <head>
     <meta charset="utf-8">
     <title>SNUAE grad_chechlist</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
   </head>
+
   <body>
-    <img src="" alt="">
-    <h1>서울대 항공우주공학과<br>졸업체크리스트</h1>
-    <h2>How to use</h2>
-    <ol>
-      <li><a href="https://my.snu.ac.kr" target="_blank" title="서울대학교 포탈이용">서울대포탈</a></li>
-      <li>수강학점을 정확히 입력하세요</li>
-    </ol>
+    <div class="header">
+      <img src="logo2.png" alt="">
+      <h1>서울대 항공우주공학과<br>졸업체크리스트</h1>
+      <h2>How to use</h2>
+      <ol>
+        <li><a href="https://my.snu.ac.kr" target="_blank" title="서울대학교 포탈 바로가기">
+          <u>서울대포탈</u>
+        </a></li>
+        <li>수강학점을 정확히 입력하세요</li>
+      </ol>
+    </div>
 
     <table border="solid">
-      <caption>기본정보</caption><button>Ver.</button>
+      <caption><img src="logo2.png" alt="" class="caplogo">기본정보</caption><button>Ver.</button>
       <tr>
-        <th>입학년도</th>
+        <th width="50%">입학년도</th>
         <th>다전공</th>
       </tr>
       <tr>
         <td>
-          <select class="">
+          <select class="info-select">
             <option value="">--</option>
             <option value="2016">2016</option>
             <option value="2017">2017</option>
@@ -32,7 +41,7 @@
           </select>
         </td>
         <td>
-          <select class="" name="">
+          <select class="info-select" name="">
             <option value="">--</option>
             <option value="">전공심화</option>
             <option value="">복수전공</option>
@@ -45,18 +54,17 @@
 
     <br>
     <table border="solid">
-      <caption>교양영역</caption><button>세부기준</button>
+      <caption><img src="logo2.png" alt="" class="caplogo">교양영역</caption><button>세부기준</button>
       <tr>
         <th colspan="2">이수구분</th>
-        <th>필수과목</th>
-        <th>최소 학점</th>
-        <th>최대 학점</th>
-        <th>이수 학점</th>
+        <th>최소학점</th>
+        <th>최대학점</th>
+        <th>이수학점</th>
+        <th>비고</th>
       </tr>
       <tr>
-        <th rowspan="10">학문의 기초</th>
+        <th rowspan="5">학문의 기초</th>
         <th>사고와 표현</th>
-        <td>글쓰기의 기초</td>
         <td>
           <input type="text" name="" value="3" readonly>
         </td>
@@ -70,10 +78,10 @@
           </select>
           <label for="korcred">학점</label>
         </td>
+        <td>글쓰기의 기초</td>
       </tr>
       <tr>
         <th>외국어</th>
-        <td>2개 교과목</td>
         <td>
           <input type="text" name="" value="4" readonly>
         </td>
@@ -90,135 +98,138 @@
             <option value="6">6</option>
           </select>
           <label for="engcred">학점</label>
-          <input type="checkbox" id="eng-check"><label for="eng-check">면제</label>
+          <br>
+          <input type="checkbox" id="eng-check"><label for="eng-check">영어면제</label>
         </td>
+        <td>2개 교과목</td>
       </tr>
       <tr>
-        <th rowspan="4">수량 분석과 추론</th>
-        <td>(고급)수학 및 연습1</td>
-        <td>3</td>
-        <td>3</td>
-        <td></td>
+        <th>수량 분석과 추론</th>
+        <td>
+          <input type="text" name="" value="12" readonly>
+        </td>
+        <td>
+          <input type="text" name="" value="12" readonly>
+        </td>
+        <td>
+          <select class="" id="mathcred">
+            <option value="0">0</option>
+            <option value="3">3</option>
+            <option value="6">6</option>
+            <option value="9">9</option>
+            <option value="12">12</option>
+          </select>
+          <label for="mathcred">학점</label>
+        </td>
+        <td>(고급)수학 및 연습1,2, 공학수학1,2</td>
       </tr>
       <tr>
-        <td>(고급)수학 및 연습2</td>
-        <td>3</td>
-        <td>3</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>공학수학1</td>
-        <td>3</td>
-        <td>3</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>공학수학2</td>
-        <td>3</td>
-        <td>3</td>
-        <td></td>
-      </tr>
-      <tr>
-        <th rowspan="3">과학적 사고와 실험</th>
-        <td>(고급)물리학1(3), 물리학실험1(1)</td>
-        <td>4</td>
-        <td>4</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>(고급)물리학2(3), 물리학실험2(1)</td>
-        <td>4</td>
-        <td>4</td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>화학1/2, 생물학1/2, 화학, 생물학, 통계학, 화학실험1/2, 생물학실험1/2,
+        <th>과학적 사고와 실험</th>
+        <td>
+          <input type="text" name="" value="12" readonly>
+        </td>
+        <td>
+          <input type="text" name="" value="12" readonly>
+        </td>
+        <td>
+          <input type="number" id="feat" placeholder="0" min="0" max="12"><label for="feat">학점</label>
+        </td>
+        <td>필수:(고급)물리학1,2, 물리학실험1,2<br>선택:화학1/2, 생물학1/2, 화학, 생물학, 통계학, 화학실험1/2, 생물학실험1/2,
         화학실험, 생물학실험, 통계학실험 중 총 4학점</td>
-        <td>4</td>
-        <td>4</td>
-        <td></td>
       </tr>
       <th>컴퓨터와 정보 활용</th>
+      <td>
+        <input type="text" name="" value="3" readonly>
+      </td>
+      <td>
+        <input type="text" name="" value="3" readonly>
+      </td>
+      <td>
+        <select class="" id="compcred">
+          <option value="0">0</option>
+          <option value="3">3</option>
+        </select>
+        <label for="compcred">학점</label>
+      </td>
       <td>컴퓨터의 개념 및 실습</td>
-      <td>3</td>
-      <td>3</td>
-      <td></td>
       <tr>
         <th rowspan="7">학문의 세계</th>
         <th><input type="checkbox" id="core1" value=""><label for="core1">언어와 문학</label></th>
-        <td></td>
         <td rowspan="5">
           <input type="text" name="" value="6" readonly>
         </td>
         <td></td>
         <td rowspan="5">
-          <input type="number" name="core" value=""><label for="core">학점</label>
+          <input type="number" name="core" value="" placeholder="0" min="0"><label for="core">학점</label>
         </td>
+        <td rowspan="5">최소 2 영역 이상에서 6학점 이상 이수</td>
       </tr>
       <tr>
         <th><input type="checkbox" id="core2" value=""><label for="core2">문화와 예술</label></th>
-        <td></td>
         <td></td>
       </tr>
       <tr>
         <th><input type="checkbox" id="core3" value=""><label for="core3">역사와 철학</label></th>
         <td></td>
-        <td></td>
       </tr>
       <tr>
         <th><input type="checkbox" id="core4" value=""><label for="core4">정치와 경제</label></th>
-        <td></td>
         <td></td>
       </tr>
       <tr>
         <th><input type="checkbox" id="core5" value=""><label for="core5">인간과 사회</label></th>
         <td></td>
-        <td></td>
       </tr>
       <tr>
-        <td>자연과 기술</td>
-        <td></td>
+        <th>자연과 기술</th>
         <td></td>
         <td></td>
         <td>
-          <input type="number" id="sci"><label for="sci">학점</label>
+          <input type="number" id="sci" placeholder="0" min="0"><label for="sci">학점</label>
         </td>
+        <td></td>
       </tr>
       <tr>
-        <td>생명과 환경</td>
-        <td></td>
+        <th>생명과 환경</th>
         <td></td>
         <td></td>
         <td>
-          <input type="number" id="feat"><label for="feat">학점</label>
+          <input type="number" id="feat" placeholder="0" min="0"><label for="feat">학점</label>
         </td>
+        <td></td>
       </tr>
       <tr>
         <th colspan="2">합계</th>
-        <td></td>
         <td>
           <input type="text" name="" value="40" readonly>
         </td>
         <td></td>
         <td>
-          <input type="text" name="" value="" readonly>학점
+          <input type="text" id="sum" value="0" style="color:red;" readonly><label for="sum">학점</label>
         </td>
+        <td></td>
       </tr>
     </table>
-
+    <p>체크리스트 사용 후 정확한 졸업사정 결과를 확인하기 위해 반드시 아래 번호로 학과에 연락하여 확인하시기 바랍니다.</p>
     <br>
-    <input type="reset" name="" value="reset">
-    <input type="button" name="" value="check">
+    <div class="btns">
+      <input type="reset" name="" value="RESET">
+      <input type="button" name="" value="CHECK">
+    </div>
     <br><br>
-    <a href="tel:02-880-5690">
-      <span>기초교육</span>
-      <br>
-      <span >02-880-5690</span>
-    </a>
+
+    <div class="call">
+      <a href="tel:02-880-5690">
+        <span>기초교육</span>
+        <br>
+        <span >02-880-5690</span>
+      </a>
+    </div>
+    <br>
 
     <table border="solid">
       <br>
-      <caption>전공</caption>
+      <caption><img src="logo2.png" alt="" class="caplogo">전공</caption>
       <tr>
         <th colspan="2">이수구분</th>
         <th>필수과목</th>
@@ -227,37 +238,76 @@
       </tr>
       <tr>
         <th rowspan="2">단일전공이수 학점</th>
-        <th>전공필수 학점</th>
+        <th>전공필수</th>
         <td></td>
-        <td rowspan="2">62</td>
-        <td></td>
+        <td rowspan="2">
+          <input type="text" name="" value="62" readonly>
+        </td>
+        <td>
+          <input type="number" id="esscls" placeholder="0" min="0"><label for="esscls">학점</label>
+        </td>
       </tr>
       <tr>
         <th>전공선택</th>
         <td></td>
-        <td></td>
+        <td>
+          <input type="number" id="selcls" placeholder="0" min="0"><label for="selcls">학점</label>
+        </td>
       </tr>
       <tr>
-        <th>다전공이수 학점</th>
+        <th colspan="2">
+          <input type="checkbox" id="multicls" value="">
+          <label for="multicls">
+            다전공이수 학점
+          </th>
         <td></td>
-        <td></td>
-        <td>42</td>
-        <td></td>
+        <td>
+          <input type="text" name="" value="42" readonly>
+        </td>
+        <td>
+          <input type="number" id="mulcls" placeholder="0" min="0"><label for="mulcls">학점</label>
+        </td>
       </tr>
       <tr>
-        <th>심화전공이수 학점</th>
+        <th colspan="2">
+          <input type="checkbox" id="advncls" value="">
+          <label for="core1">
+            심화전공이수 학점</th>
         <td></td>
-        <td></td>
-        <td>28</td>
-        <td></td>
+        <td>
+          <input type="text" name="" value="28" readonly>
+        </td>
+        <td>
+          <input type="number" id="advcls" placeholder="0" min="0"><label for="advcls">학점</label>
+        </td>
       </tr>
       <tr>
-        <th>합계</th>
+        <th colspan="2">합계</th>
         <td></td>
+        <td>
+          <select class="" id="mincls">
+            <option value="104">104</option>
+            <option value="90">90</option>
+          </select>
+          <label for="mincls">학점</label>
+        </td>
+        <td>
+          <input type="text" value="0" id="clssum" style="color:red;" readonly><label for="clssum">학점</label>
+        </td>
+      </tr>
+      <tr>
+        <th colspan="2">전 학년 평점</th>
         <td></td>
-        <td>104/90</td>
+        <td>
+          <input type="number" step="0.01" id="meancred" placeholder="0" min="0" max="4.3"><label for="meancred">/4.3</label>
+        </td>
         <td></td>
       </tr>
     </table>
+    <br>
+    <div class="btns">
+      <input type="reset" name="" value="RESET">
+      <input type="button" name="" value="CHECK">
+    </div>
   </body>
 </html>

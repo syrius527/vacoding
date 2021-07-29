@@ -1,0 +1,159 @@
+body {
+  background-color: rgb(15,15,112);
+  color: white;
+  margin-left: 10%;
+  margin-right: 10%;
+  text-align: center;
+  padding-bottom: 2rem;
+  font-family: 'Jua', sans-serif;
+}
+
+.header {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+h1 {
+  font-size: 25px;
+  /* margin-top: 12px;
+  margin-bottom: 12px; */
+  margin: 12px 0;
+}
+
+h2 {
+  font-size: 20px;
+  margin: 12px 0;
+}
+
+ol {
+  list-style: none;
+  font-size: 16px;
+  padding-left: 0;
+}
+
+img {
+  width: 100px;
+  height: auto;
+}
+
+.caplogo {
+  width: 20px;
+  height: auto;
+}
+
+caption {
+  text-align: left;
+  margin-bottom: 5px;
+  font-size: 20px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  border-color: white;
+  font-size: 15px;
+}
+
+td {
+  background-color: white;
+  color: black;
+  text-align: center;
+  font-size: 18px;
+}
+
+th, td {
+  padding: 5px;
+}
+
+p {
+  padding: 0 30px;
+  margin-top: 10px;
+}
+
+input[type=text] {
+  text-align: center;
+  height: 30px;
+  width: 50px;
+  border: none;
+  color: blue;
+}
+
+input[type=number] {
+  text-align: center;
+  height: 30px;
+  width: 50px;
+  color: red;
+}
+
+select {
+  width: 50px;
+  text-align-last: center;
+  color: red;
+}
+
+.info-select {
+  width: 100px;
+  color: black;
+  font-size: 19px;
+}
+
+.call {
+  font-size: 20px;
+}
+
+.btns, .call {
+  text-align: center;
+}
+
+input[type=reset], input[type=button] {
+  width: 120px;
+  height: 40px;
+  font-size: 20px;
+  border-radius: 20px;
+  border: none;
+  margin: 0 20px;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+}
+
+input[type=reset] {
+  background-color: red;
+}
+
+input[type=reset]:hover {
+  background-color: white;
+  color: red;
+}
+
+input[type=reset]:active {
+  transform: scale(0.95);
+}
+
+input[type=button] {
+  background-color: #00ff33;
+}
+
+input[type=button]:hover {
+  background-color: white;
+  color: #00ff33;
+}
+
+input[type=button]:active {
+  transform: scale(0.95);
+}
+
+
+@media (orientation: portrait){ /*세로모드일 때 css*/
+  body {
+    margin: 0 0.2rem;
+  }
+}
