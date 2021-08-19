@@ -78,6 +78,10 @@ p {
   margin-top: 10px;
 }
 
+#about {
+  cursor: pointer;
+}
+
 input[type=text] {
   text-align: center;
   height: 30px;

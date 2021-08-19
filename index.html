@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jua&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   </head>
 
   <body>
@@ -18,20 +19,20 @@
         <li><a href="https://my.snu.ac.kr" target="_blank" title="서울대학교 포탈 바로가기">
           <u>서울대포탈</u>
         </a></li>
-        <li>수강학점을 정확히 입력하세요</li>
+        <li>✔ = 기준 통과, ❕ = 주의 요망, ❌ = 졸업 불가</li>
       </ol>
     </div>
 
     <table border="solid">
-      <caption><img src="logo2.png" alt="" class="caplogo">기본정보</caption><button>Ver.</button>
+      <caption id="basicinfo"><img src="logo2.png" alt="" class="caplogo">기본정보</caption><button>Ver.</button>
       <tr>
         <th width="50%">입학년도</th>
         <th>다전공</th>
       </tr>
       <tr>
         <td>
-          <select class="info-select">
-            <option value="">--</option>
+          <select class="info-select" id="admissionyear">
+            <option value="0">--</option>
             <option value="2016">2016</option>
             <option value="2017">2017</option>
             <option value="2018">2018</option>
@@ -41,18 +42,20 @@
           </select>
         </td>
         <td>
-          <select class="info-select" name="">
-            <option value="">--</option>
-            <option value="">전공심화</option>
-            <option value="">복수전공</option>
-            <option value="">연합전공</option>
-            <option value="">연계전공</option>
+          <select class="info-select" id="classinfo">
+            <option value="0">--</option>
+            <option value="28">전공심화</option>
+            <option value="42">복수전공</option>
+            <option value="21">부전공</option>
+            <option value="3">연합전공</option>
+            <option value="4">연계전공</option>
           </select>
         </td>
       </tr>
     </table>
 
     <br>
+    <form id="liberal-form">
     <table border="solid">
       <caption><img src="logo2.png" alt="" class="caplogo">교양영역</caption><button>세부기준</button>
       <tr>
@@ -66,7 +69,7 @@
         <th rowspan="5">학문의 기초</th>
         <th>사고와 표현</th>
         <td>
-          <input type="text" name="" value="3" readonly>
+          <input type="text" name="" value="3" id="kor-min" readonly>
         </td>
         <td>
           <input type="text" name="" value="3" readonly>
@@ -83,7 +86,7 @@
       <tr>
         <th>외국어</th>
         <td>
-          <input type="text" name="" value="4" readonly>
+          <input type="text" name="" value="4" id="for-min" readonly>
         </td>
         <td>
           <input type="text" name="" value="6" readonly>
@@ -106,7 +109,7 @@
       <tr>
         <th>수량 분석과 추론</th>
         <td>
-          <input type="text" name="" value="12" readonly>
+          <input type="text" name="" value="12" id="math-min" readonly>
         </td>
         <td>
           <input type="text" name="" value="12" readonly>
@@ -126,20 +129,20 @@
       <tr>
         <th>과학적 사고와 실험</th>
         <td>
-          <input type="text" name="" value="12" readonly>
+          <input type="text" name="" value="12" id="sci-min" readonly>
         </td>
         <td>
           <input type="text" name="" value="12" readonly>
         </td>
         <td>
-          <input type="number" id="feat" placeholder="0" min="0" max="12"><label for="feat">학점</label>
+          <input type="number" id="scicred" placeholder="0" min="0" max="12"><label for="scicred">학점</label>
         </td>
         <td>필수:(고급)물리학1,2, 물리학실험1,2<br>선택:화학1/2, 생물학1/2, 화학, 생물학, 통계학, 화학실험1/2, 생물학실험1/2,
         화학실험, 생물학실험, 통계학실험 중 총 4학점</td>
       </tr>
       <th>컴퓨터와 정보 활용</th>
       <td>
-        <input type="text" name="" value="3" readonly>
+        <input type="text" name="" value="3" id="comp-min" readonly>
       </td>
       <td>
         <input type="text" name="" value="3" readonly>
@@ -156,11 +159,11 @@
         <th rowspan="7">학문의 세계</th>
         <th><input type="checkbox" id="core1" value=""><label for="core1">언어와 문학</label></th>
         <td rowspan="5">
-          <input type="text" name="" value="6" readonly>
+          <input type="text" name="" value="6" id="core-min" readonly>
         </td>
         <td></td>
         <td rowspan="5">
-          <input type="number" name="core" value="" placeholder="0" min="0"><label for="core">학점</label>
+          <input type="number" name="core" id="corecred" placeholder="0" min="0"><label for="core">학점</label>
         </td>
         <td rowspan="5">최소 2 영역 이상에서 6학점 이상 이수</td>
       </tr>
@@ -185,7 +188,7 @@
         <td></td>
         <td></td>
         <td>
-          <input type="number" id="sci" placeholder="0" min="0"><label for="sci">학점</label>
+          <input type="number" id="core-sci" placeholder="0" min="0"><label for="core-sci">학점</label>
         </td>
         <td></td>
       </tr>
@@ -194,14 +197,14 @@
         <td></td>
         <td></td>
         <td>
-          <input type="number" id="feat" placeholder="0" min="0"><label for="feat">학점</label>
+          <input type="number" id="core-feat" placeholder="0" min="0"><label for="core-feat">학점</label>
         </td>
         <td></td>
       </tr>
       <tr>
         <th colspan="2">합계</th>
         <td>
-          <input type="text" name="" value="40" readonly>
+          <input type="text" name="" value="40" id="sum-min" readonly>
         </td>
         <td></td>
         <td>
@@ -210,11 +213,12 @@
         <td></td>
       </tr>
     </table>
+    </form>
     <p>체크리스트 사용 후 정확한 졸업사정 결과를 확인하기 위해 반드시 아래 번호로 학과에 연락하여 확인하시기 바랍니다.</p>
     <br>
     <div class="btns">
-      <input type="reset" name="" value="RESET">
-      <input type="button" name="" value="CHECK">
+      <input type="reset" name="" value="RESET" id="liberalreset">
+      <input type="button" name="" value="CHECK" id="liberalcheck">
     </div>
     <br><br>
 
@@ -227,6 +231,7 @@
     </div>
     <br>
 
+    <form id="major-form">
     <table border="solid">
       <br>
       <caption><img src="logo2.png" alt="" class="caplogo">전공</caption>
@@ -241,7 +246,7 @@
         <th>전공필수</th>
         <td></td>
         <td rowspan="2">
-          <input type="text" name="" value="62" readonly>
+          <input type="text" name="" value="62" id="sngcls-min" readonly>
         </td>
         <td>
           <input type="number" id="esscls" placeholder="0" min="0"><label for="esscls">학점</label>
@@ -262,7 +267,7 @@
           </th>
         <td></td>
         <td>
-          <input type="text" name="" value="42" readonly>
+          <input type="text" name="" value="42" id="multicls-min" readonly>
         </td>
         <td>
           <input type="number" id="mulcls" placeholder="0" min="0"><label for="mulcls">학점</label>
@@ -271,11 +276,11 @@
       <tr>
         <th colspan="2">
           <input type="checkbox" id="advncls" value="">
-          <label for="core1">
+          <label for="advncls">
             심화전공이수 학점</th>
         <td></td>
         <td>
-          <input type="text" name="" value="28" readonly>
+          <input type="text" name="" value="28" id="advncls-min" readonly>
         </td>
         <td>
           <input type="number" id="advcls" placeholder="0" min="0"><label for="advcls">학점</label>
@@ -304,10 +309,16 @@
         <td></td>
       </tr>
     </table>
+    </form>
     <br>
     <div class="btns">
-      <input type="reset" name="" value="RESET">
-      <input type="button" name="" value="CHECK">
+      <input type="reset" name="" value="RESET" id="majorreset">
+      <input type="button" name="" value="CHECK" id="majorcheck">
     </div>
+    <br><br>
+    <footer>
+      <span id="about">About</span>
+    </footer>
+    <script src="app.js"></script>
   </body>
 </html>
